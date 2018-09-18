@@ -1,0 +1,31 @@
+//Taken from 'mixin' scss file to demonstrate for loop below.
+
+@mixin button($color, $size) {
+    width: $size;
+    height: $size / 2;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: $color;
+    padding-top: $size / 4 - 8;
+    box-sizing: border-box;
+}
+
+@for $i from 1 through 4 {
+    $color: black;
+    .btn-#{$i} {
+        @if $i == 1 {
+            $color: red;
+        }
+        @else if $i == 2 {
+            $color: blue;
+        }
+        @else if $i == 3 {
+            $color: green;
+        }
+        @else {
+            $color: lemonchiffon;
+        }
+        @include button($color, 100px);
+    }
+}
