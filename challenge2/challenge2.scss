@@ -1,0 +1,27 @@
+@mixin box($size, $background-color) {
+    width: $size;
+    height: $size / 2;
+    background-color: $background-color;
+}
+
+.box {
+    @include box(200px, #bada55);
+}
+
+@mixin newbutton($color, $size) {
+    width: $size;
+    height: $size / 2;
+    background-color: $color;
+    border-radius: 5px;
+    
+    @if $size < 120 {
+        font-size: 12px;
+    }
+    @else {
+        font-size: $size / 10;
+    }
+}
+
+.btn {
+    @include newbutton(#bada55, 600px);
+}
